@@ -3,76 +3,75 @@
     padding: 14px 14px 0;
     overflow: hidden;
     background-color: rgba(255, 255, 255, .8);
-  }
-  .modal {
+}
+
+.modal {
     height: 2000px;
-  }
+}
 
-  #login-dp .help-block {
+.html {
+    background-color: aliceblue;
+}
+
+#login-dp .help-block {
     font-size: 12px
-  }
-  
-  .navbar {
-    border-radius: 0 !important;
-  }
-  
-  #logo {
-      max-height:inherit;
-      max-width:inherit;
-      height:60px;
-      width:75px;
-  }
+}
 
-  #login-dp .bottom {
+.navbar {
+    border-radius: 0 !important;
+}
+
+#login-dp .bottom {
     background-color: rgba(255, 255, 255, .8);
     border-top: 1px solid #ddd;
     clear: both;
     padding: 14px;
-  }
-  
-  #login-dp .social-buttons {
+}
+
+#login-dp .social-buttons {
     margin: 12px 0
-  }
-  
-  #login-dp .social-buttons a {
+}
+
+#login-dp .social-buttons a {
     width: 49%;
-  }
-  
-  #login-dp .form-group {
+}
+
+#login-dp .form-group {
     margin-bottom: 10px;
-  }
-  
-  .btn-fb {
+}
+
+.btn-fb {
     color: #fff;
     background-color: #3b5998;
-  }
-  
-  .btn-fb:hover {
+}
+
+.btn-fb:hover {
     color: #fff;
     background-color: #496ebc
-  }
-  
-  .btn-tw {
+}
+
+.btn-tw {
     color: #fff;
     background-color: #55acee;
-  }
-  
-  .btn-tw:hover {
+}
+
+.btn-tw:hover {
     color: #fff;
     background-color: #59b5fa;
-  }
-  
-  @media(max-width:768px) {
+}
+
+@media(max-width:768px) {
     #login-dp {
-      background-color: inherit;
-      color: #fff;
+        background-color: inherit;
+        color: #fff;
     }
     #login-dp .bottom {
-      background-color: inherit;
-      border-top: 0 none;
+        background-color: inherit;
+        border-top: 0 none;
     }
-  }
-  .btn-outline {
+}
+
+.btn-outline {
     background-color: transparent;
     color: inherit;
     transition: all .5s;
@@ -105,6 +104,7 @@
 .btn-danger.btn-outline:hover {
     color: #fff;
 }
+
 .user-row {
     margin-bottom: 14px;
 }
@@ -123,24 +123,18 @@
     cursor: pointer;
 }
 
-.table-user-information > tbody > tr {
+.table-user-information>tbody>tr {
     border-top: 1px solid rgb(221, 221, 221);
 }
 
-.table-user-information > tbody > tr:first-child {
+.table-user-information>tbody>tr:first-child {
     border-top: 0;
 }
 
-
-.table-user-information > tbody > tr > td {
+.table-user-information>tbody>tr>td {
     border-top: 0;
 }
-.toppad
-{margin-top:20px;
 
-}
-
-html body
-{background-color:aliceblue;
-
+.toppad {
+    margin-top: 20px;
 }

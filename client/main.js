@@ -5,12 +5,12 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import './main.html';
 
 if (Meteor.isClient) {
-    Tracker.autorun(function () {
+    Tracker.autorun(function() {
         Meteor.subscribe("allUsers");
         Meteor.subscribe("allUserData");
     });
     Template.signup.events({
-        'submit form': function (event) {
+        'submit form': function(event) {
             event.preventDefault();
             var emailVar = event.target.signupEmail.value;
             var passwordVar = event.target.signupPassword.value;
@@ -37,7 +37,7 @@ if (Meteor.isClient) {
                     password: passwordVar,
                     profile: {
                         name: nameVar,
-                        role: "Why is this triggering",
+                        role: "User",
                         createdAt: date,
                         room_type: "0",
                         room_number: "0",
@@ -50,7 +50,7 @@ if (Meteor.isClient) {
         }
     });
     Template.body.events({
-        'click .cancel': function (e) {
+        'click .cancel': function(e) {
             event.preventDefault();
             var date = Meteor.user().profile.createdAt;
             var name = Meteor.user().profile.name;
@@ -71,13 +71,13 @@ if (Meteor.isClient) {
             });
             //alert("Great Success!");
             $('#myModalAccount').modal('hide');
-            setTimeout(function () {
+            setTimeout(function() {
                 $('#myModal2').modal('show');
             }, 1000)
         }
     });
     Template.login.events({
-        'submit form': function (event) {
+        'submit form': function(event) {
             event.preventDefault();
             var emailVar = event.target.loginEmail.value;
             var passwordVar = event.target.loginPassword.value;
@@ -85,11 +85,11 @@ if (Meteor.isClient) {
         }
     });
     Template.settings.events({
-        'click .logout': function (event) {
+        'click .logout': function(event) {
             event.preventDefault();
             Meteor.logout();
         },
-        'submit form': function (event) {
+        'submit form': function(event) {
             event.preventDefault();
             var room_type = event.target.room_type.value;
             var room_number = event.target.room_number.value;
@@ -121,57 +121,57 @@ if (Meteor.isClient) {
         }
     });
     Template.userEmail.helpers({
-        userEmail: function () {
+        userEmail: function() {
             return Meteor.user().emails[0].address
         }
     });
     Template.userName.helpers({
-        userName: function () {
+        userName: function() {
             return Meteor.user().profile.name
         }
     });
     Template.userChecked_In.helpers({
-        userChecked_In: function () {
+        userChecked_In: function() {
             return Meteor.user().profile.checked_In
         }
     });
     Template.userRole.helpers({
-        userRole: function () {
+        userRole: function() {
             return Meteor.user().profile.role
         }
     });
     Template.userChildNumber.helpers({
-        userChildNumber: function () {
+        userChildNumber: function() {
             return Meteor.user().profile.child_number
         }
     });
     Template.userEmailVerified.helpers({
-        userEmailVerified: function () {
+        userEmailVerified: function() {
             return Meteor.user().emails[0].verified
         }
     });
     Template.userPersonNumber.helpers({
-        userPersonNumber: function () {
+        userPersonNumber: function() {
             return Meteor.user().profile.person_number
         }
     });
     Template.userCreatedAt.helpers({
-        userCreatedAt: function () {
+        userCreatedAt: function() {
             return Meteor.user().profile.createdAt
         }
     });
     Template.userNumRoom.helpers({
-        userNumRoom: function () {
+        userNumRoom: function() {
             return Meteor.user().profile.room_number
         }
     });
     Template.userRoomType.helpers({
-        userRoomType: function () {
+        userRoomType: function() {
             return Meteor.user().profile.room_type
         }
     });
     Template.daysOverview.helpers({
-        users: function () {
+        users: function() {
             var user = Meteor.users.find({});
             return user;
         },
@@ -181,7 +181,7 @@ if (Meteor.isClient) {
           return Meteor.user()._id
         }, */
     Template.isAdmin.helpers({
-        admin: function () {
+        admin: function() {
             if (Meteor.user().profile.role == "Admin") {
                 return true
             } else {
@@ -192,13 +192,13 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
-    Meteor.startup(function () {
+    Meteor.startup(function() {
         // code to run on server at startup
     });
-    Meteor.publish('allUsers', function () {
+    Meteor.publish('allUsers', function() {
         return Meteor.users.find();
     });
-    Meteor.publish('AllUserData', function () {
+    Meteor.publish('AllUserData', function() {
         return Meteor.users.find({}, { fields: { profile: true } });
     });
 }
