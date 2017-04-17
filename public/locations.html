@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -26,11 +25,10 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <link rel="stylesheet" type="text/css" href="css1.css">
 </head>
-<link rel="stylesheet" type="text/css" href="css1.css">
 
-<body>
+<body style="background-color:aliceblue">
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -43,7 +41,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Blue Moon Suites</a>
+                <a class="navbar-brand" href="main.html">
+                    <img src="https://www.bluemoonbrewingcompany.com/sites/bluemoon/files/blue-moon-logo.png" height="60" width="75" />
+                </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="my-nav">
@@ -67,51 +67,51 @@
                                         <div class="social-buttons">
                                             <a href="#" class="btn btn-fb">
                                                 <i class="fa fa-facebook">
-												</i> Facebook
+                                                </i> Facebook
                                             </a>
                                             <a href="#" class="btn btn-tw">
                                                 <i class="fa fa-twitter">
-													</i> Twitter
+                                                </i> Twitter
                                             </a>
                                         </div>
                                         or
                                         <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
                                             <div class="form-group">
                                                 <label class="sr-only" for="exampleInputEmail2">
-													Email address
-													</label>
+                                                    Email address
+                                                </label>
                                                 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
                                             </div>
                                             <div class="form-group">
                                                 <label class="sr-only" for="exampleInputPassword2">
-													Password
-													</label>
+                                                    Password
+                                                </label>
                                                 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
                                                 <div class="help-block text-right">
                                                     <a href="">
-														Forget the password ?
-														</a>
+                                                        Forgot your password?
+                                                    </a>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-success btn-outline btn-block">
-													Sign in
-													</button>
+                                                    Sign in
+                                                </button>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-											 <input type="checkbox">
-											  keep me logged-in
-											 </label>
+                                                    <input type="checkbox">
+                                                    Keep me logged in
+                                                </label>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="bottom text-center">
-                                        New here ?
+                                        New here?
                                         <a href="#">
                                             <b>
-												Join Us
-												</b>
+                                                Join Us
+                                            </b>
                                         </a>
                                     </div>
                                 </div>
@@ -129,18 +129,19 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Locations to Visit
-                    <small></small>
+                <h1 class="page-header">
+                    Locations
+                    <small>Scenery</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Home</a>
+                    <li>
+                        <a href="main.html">Home</a>
                     </li>
                     <li class="active">Nearby Locations</li>
                 </ol>
             </div>
         </div>
         <!-- /.row -->
-
         <!-- Portfolio Item Row -->
         <div class="row">
 
@@ -156,13 +157,13 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img class="img-responsive" src="http://placehold.it/750x500" alt="">
+                            <img class="img-responsive" src="images/item3.jpg" alt="sunset">
                         </div>
                         <div class="item">
-                            <img class="img-responsive" src="http://placehold.it/750x500" alt="">
+                            <img class="img-responsive" src="images/750x500beach.jpg" alt="beach">
                         </div>
                         <div class="item">
-                            <img class="img-responsive" src="http://placehold.it/750x500" alt="">
+                            <img class="img-responsive" src="images/750x500nightbeach.jpg" alt="nightbeach">
                         </div>
                     </div>
 
@@ -177,20 +178,22 @@
             </div>
 
             <div class="col-md-4">
-                <h3>Locations (General)</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-                <h3>Location Details</h3>
+                <h3>Explore</h3>
+                <p>Take a day or two to enjoy the environment around you. Explore the many different cultures where our
+                hotels and resorts reside. Let us help you view the world in a way you have yet to experience.</p>
+               <!--- <h3>Location Details</h3> -->
+                <!--
                 <ul>
                     <li>Lorem Ipsum</li>
                     <li>Dolor Sit Amet</li>
                     <li>Consectetur</li>
                     <li>Adipiscing Elit</li>
                 </ul>
+                -->
             </div>
 
         </div>
         <!-- /.row -->
-
         <!-- Related Projects Row -->
         <div class="row">
 
@@ -200,19 +203,19 @@
 
             <div class="col-sm-4 col-xs-6">
                 <a href="pool.html">
-                    <img class="img-responsive img-hover img-related" src="http://placehold.it/500x300&text=Pool" alt="">
+                    <img class="img-responsive img-hover img-related" src="images/poolpic2.jpg" alt="pool">
                 </a>
             </div>
 
             <div class="col-sm-4 col-xs-6">
                 <a href="gym.html">
-                    <img class="img-responsive img-hover img-related" src="http://placehold.it/500x300&text=Gym" alt="">
+                    <img class="img-responsive img-hover img-related" src="images/gym1.jpg" alt="gym">
                 </a>
             </div>
 
             <div class="col-sm-4 col-xs-6">
                 <a href="events.html">
-                    <img class="img-responsive img-hover img-related" src="http://placehold.it/500x300&text=Events" alt="">
+                    <img class="img-responsive img-hover img-related" src="images/eventpic2.jpg" alt="event">
                 </a>
             </div>
 
@@ -233,7 +236,6 @@
 
     </div>
     <!-- /.container -->
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
