@@ -33,21 +33,20 @@
     <link rel="stylesheet" type="text/css" href="css1.css">
 
 </head>
-
-<body>
-
+<!--Change the background color to Aliceblue-->
+<body style="background-color:aliceblue">
     <script>
-        $(document).ready(function() {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
+    $(document).ready(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
     </script>
     {{> modalAlert2}} {{> modalAlert}} {{> modalAccount}} {{> UI}}
 
     <!-- Script to Activate the Carousel -->
     <script>
-        $('.carousel').carousel({
-            interval: 5000 //changes the speed
-        })
+    $('.carousel').carousel({
+      interval: 5000 //changes the speed
+    })
     </script>
 </body>
 
@@ -258,102 +257,6 @@
 
 </template>
 
-<template name="modalAccount">
-
-    <!-- Modal -->
-    <div id="myModalAdmin" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="row">
-
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title" align="center"><b>{{> userName}}</b></h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://i.imgur.com/hfH9CiC.png" class="img-circle img-responsive"> </div>
-
-                                    <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
-                                      <dl>
-                                        <dt>DEPARTMENT:</dt>
-                                        <dd>Administrator</dd>
-                                        <dt>HIRE DATE</dt>
-                                        <dd>11/12/2013</dd>
-                                        <dt>DATE OF BIRTH</dt>
-                                           <dd>11/12/2013</dd>
-                                        <dt>GENDER</dt>
-                                        <dd>Male</dd>
-                                      </dl>
-                                    </div>-->
-                                    <div class=" col-md-9 col-lg-9 ">
-                                        <table class="table table-user-information">
-                                            <tbody>
-                                                <tr>
-                                                    <td><b>Email:</b></td>
-                                                    <td>{{> userEmail}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Number of Rooms:</b></td>
-                                                    <td>{{> userNumRoom}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Room Tier:</b></td>
-                                                    <td>{{> userRoomType}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Number of Persons:</b></td>
-                                                    <td>{{> userPersonNumber}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Number of Children:</b></td>
-                                                    <td>{{> userChildNumber}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Account Creation Date/Time:</b></td>
-                                                    <td>{{> userCreatedAt}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>(TEST ONLY) Role:</b></td>
-                                                    <td>{{> userRole}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-                                        <a href="#" class="btn btn-primary">My Sales Performance</a>
-                                        <a href="#" class="btn btn-primary">Team Sales Performance</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-footer">
-                                <a href="contact.html" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                                <span class="pull-right">
-                                    <a data-original-title="Cancel Reservation" data-toggle="tooltip" data-placement="top" type="submit" value="cancel" class="cancel btn btn-sm btn-danger" title="Cancel Reservation">Cancel Reservation  <span class="glyphicon glyphicon-remove"></span></a>
-                                </span>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-
-    </div>
-
-</template>
-
-
 <template name="UI">
 
     <!-- Navigation -->
@@ -368,7 +271,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html">
-                    <img src="https://www.bluemoonbrewingcompany.com/sites/bluemoon/files/blue-moon-logo.png" style="max-width:inherit" width="75" height="60" />
+                    <!--Blue Moon Logo-->
+                    <img src="images/blue-moon-logo.png" id="logo"/>
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -407,7 +311,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <img src="images/carousel1.jpg" alt="Hotel">
+                <img src="images/Sandals.jpg" alt="Hotel"> <!--The only imaged changed on the carrosel-->
                 <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=General Hotel Picture 1');"></div>
                 <div class="carousel-caption">
                 </div>
@@ -454,6 +358,7 @@
                     </div>
                     <div class="panel-body">
                         {{> daysOverview}}
+                        <!--Brandell-->
                         <p>
                             In today's day in age we realize how important it is to stay connected. Keep in touch with reality
                             while still enjoying your stay whether its for business or pleasure. We offer the options of booking
@@ -469,6 +374,7 @@
                         <h4><i class="fa fa-fw fa-gift"></i> Exclusive Gifts</h4>
                     </div>
                     <div class="panel-body">
+                        <!--Brandell-->
                         <p>
                             We offer our gold members the gift of it all. Get exclusive offers, promotional discounts, and even
                             free night stays with full access to any resort's or suite's amenities! Refer a friend and save $100 off
@@ -484,15 +390,16 @@
                         <h4><i class="fa fa-fw fa-facebook"></i> Get Social</h4>
                     </div>
                     <div class="panel-body">
+                        <!--Brandell-->
                         <p>
                             Follow us on Twitter, Facebook, and Reddit to be apart of our community! Give us feedback for
                             your thoughts on how we can improve your stay or even just for a shout out! Receive $25 off your
                             next reservation when you like and follow us on Facebook and Twitter! (Must have an active account
                             on our website.)
                         </p>
-                        <a href="#" class="btn btn-primary btn-outline fa fa-reddit" id="reddit"> Reddit</a>
-                        <a href="#" class="btn btn-primary btn-outline fa fa-twitter" id="face"> Twitter</a>
-                        <a href="#" class="btn btn-primary btn-outline fa fa-facebook"> Facebook</a>
+                        <a href="https://www.reddit.com" class="btn btn-primary btn-outline fa fa-reddit" id="reddit"> Reddit</a>
+                        <a href="https://twitter.com" class="btn btn-primary btn-outline fa fa-twitter" id="face"> Twitter</a>
+                        <a href="https://www.facebook.com" class="btn btn-primary btn-outline fa fa-facebook"> Facebook</a>
                     </div>
                 </div>
             </div>
@@ -504,33 +411,39 @@
                 <h2 class="page-header">Get Comfortable and Rested</h2>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
+                <a href="images/Double1.jpg">
+                    <!--Brandell-->
                     <img class="img-hover" src="images/Double1.jpg" alt="AwayHome" height="175" width="290">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
+                <a href="images/Deluxe2.jpg">
+                    <!--Brandell-->
                     <img class="img-hover img-portfolio" src="images/Deluxe2.jpg" height="175" width="290" alt="AwayHome">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
+               <a href="images/beachhotelroom.jpg">  
+                    <!--Brandell-->
                     <img class="img-portfolio img-hover" src="images/beachhotelroom.jpg" height="175" width="290" alt="AwayHome">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-portfolio img-hover" src="images/hotelpool.jpg" height="175" width="290" alt="AwayHome">
+               <a href="images/hotelpool.jpg"> 
+                    <!--Brandell-->
+                   <img class="img-portfolio img-hover" src="images/hotelpool.jpg" height="175" width="290" alt="AwayHome">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
+               <a href="images/Single1.jpg">
+                    <!--Brandell-->
                     <img class="img-portfolio img-hover" src="images/Single1.jpg" alt="AwayHome" height="175" width="290">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-portfolio img-hover" src="images/Cali.jpg" alt="AwayHome" height="175" width="290">
+               <a href="images/Cali.jpg">
+                    <!--Brandell-->
+                   <img class="img-portfolio img-hover" src="images/Cali.jpg" alt="AwayHome" height="175" width="290">
                 </a>
             </div>
         </div>
@@ -541,16 +454,19 @@
                 <h2 class="page-header">Entertainment Beyond Belief</h2>
             </div>
             <div class="col-md-6">
+                <!--Brandell-->
                 <p>Enjoy your stay and pass some time to your hearts content, take advantage of the many choices we have for fun!</p>
                 <ul>
                   <!--  <li>
                         <strong>Bootstrap v3.3.7</strong>
                     </li> -->
+                    <!--Brandell-->
                     <li>Xbox One S, Playstation 4, Nintendo Switch available in every room.</li>
                     <li>24/7 buffet serving breakfast, lunch, and dinner.</li>
                     <li>Gym, Pool, and Track facilities at every location.</li>
                     <li>Take part in our underwater excersions when visiting our resort's private beaches!</li>
                 </ul>
+                <!--Brandell-->
                 <p>
                     Our brand is the epitome of luxury and relaxation. If you're looking for a place where family is welcomed, a place for a special occasion,
                     or just a place to kick back and get away from it all, then look no further. Here at Blue Moon Suites we strive for your enjoyment,
@@ -569,6 +485,7 @@
         <div class="well">
             <div class="row">
                 <div class="col-md-8">
+                    <!--Brandell-->
                     <p>
                         Reserve a stay today, it's just a click away. Our team welcomes you openly to relax, unwine, and breeze through the day.
                         Let us temporarily take you away from reality so you can have your head in the clouds and your mind at ease.
