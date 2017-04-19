@@ -27,11 +27,10 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <link rel="stylesheet" type="text/css" href="css1.css">
 </head>
-<link rel="stylesheet" type="text/css" href="css1.css">
 
 <body>
-
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -43,7 +42,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Blue Moon Suites</a>
+                <a class="navbar-brand" href="main.html">
+                    <img src="https://www.bluemoonbrewingcompany.com/sites/bluemoon/files/blue-moon-logo.png" height="60" width="75" />
+                </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="my-nav">
@@ -55,7 +56,10 @@
                         <a href="contact.html">Contact</a>
                     </li>
                     <li>
-                        <a href="portfolio-1-col.html"> Amenities</a>
+                        <a href="portfolio-1-col.html">Amenities</a>
+                    </li>
+                    <li>
+                        <a href="pricing.html">Pricing</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b><b class="caret"></b></a>
@@ -119,8 +123,10 @@
                         </ul>
                     </li>
                 </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container -->
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
     </nav>
     <!-- Page Content -->
     <div class="container">
@@ -153,12 +159,12 @@
                 <p>
                     33 Gilmer Street<br>Atlanta, GA 30303<br>
                 </p>
-                <p><i class="fa fa-phone"></i> 
+                <p><i class="fa fa-phone"></i>
                     <abbr title="Phone">P</abbr>: (404)-413-2500</p>
-                <p><i class="fa fa-envelope-o"></i> 
+                <p><i class="fa fa-envelope-o"></i>
                     <abbr title="Email">E</abbr>: <a href="mailto:name@example.com">paulv.wow@gmail.com</a>
                 </p>
-                <p><i class="fa fa-clock-o"></i> 
+                <p><i class="fa fa-clock-o"></i>
                     <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM</p>
                 <ul class="list-unstyled list-inline list-social-icons">
                     <li>
@@ -206,7 +212,8 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Message:</label>
-                            <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                            <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message"
+                                maxlength="999" style="resize:none"></textarea>
                         </div>
                     </div>
                     <div id="success"></div>
