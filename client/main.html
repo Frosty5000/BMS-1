@@ -1,191 +1,230 @@
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
 
-    <title>Blue Moon Suites</title>
+  <title>Blue Moon Suites</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
 
-    <!-- Custom CSS -->
-    <link href="css/modern-business.css" rel="stylesheet">
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
 
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML api -->
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <!-- Custom CSS -->
+  <link href="css/modern-business.css" rel="stylesheet">
 
-    <!-- Responsiveness -->
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <!-- Custom Fonts -->
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+  <!-- HTML api -->
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+  <!-- Responsiveness -->
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
 
-    <link rel="stylesheet" type="text/css" href="css1.css">
+  <link rel="stylesheet" type="text/css" href="css1.css">
 
 </head>
-<!--Change the background color to Aliceblue-->
-<body style="background-color:aliceblue">
-    <script>
-    $(document).ready(function () {
-      $('[data-toggle="tooltip"]').tooltip();
-    });
-    </script>
-    {{> modalAlert2}} {{> modalAlert}} {{> modalAccount}} {{> UI}}
 
-    <!-- Script to Activate the Carousel -->
-    <script>
+<body>
+  <script>
+    $(document).ready(function () {
+
+      (function ($) {
+
+        $('#filter').keyup(function () {
+
+          var rex = new RegExp($(this).val(), 'i');
+          $('.searchable tr').hide();
+          $('.searchable tr').filter(function () {
+            return rex.test($(this).text());
+          }).show();
+
+        })
+
+      }(jQuery));
+
+    });
+  </script>
+
+  {{> modalAdmin}} {{> modalAlert2}} {{> modalAlert}} {{> modalAccount}} {{> UI}}
+
+  <!-- Script to Activate the Carousel -->
+  <script>
     $('.carousel').carousel({
       interval: 5000 //changes the speed
     })
-    </script>
+  </script>
 </body>
 
+<template name="datePicker1">
+  <div class="input-group datetimepicker1">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+    <input class="set-due-date form-control" id="inDate" type="text" />
+  </div>
+</template>
+
+<template name="datePicker2">
+  <div class="input-group datetimepicker2">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+    <input class="set-due-date form-control" id="outDate" type="text" />
+  </div>
+</template>
+
 <template name="daysOverview">
-    <div class="container-fluid">
-        <div class="row">
-            {{#each users}}
-            <p>Name: {{profile.name}}</p>
-            {{/each}}
-        </div>
-    </div>
+  {{#each users}}
+  <tr>
+    <td>{{profile.name}}</td>
+    <td>{{email}}</td>
+    <td>{{profile.room_type}}</td>
+    <td>{{profile.inDate}}</td>
+    <td>{{profile.outDate}}</td>
+  </tr>
+  {{/each}}
 </template>
 
 <template name="isAdmin">
-    {{#if admin}}
-    <li>
-        <a href="admin.html">Admin (Presentation Only)</a>
-    </li>
-    <li>
-        <a href="blank-page.html">Admin</a>
-    </li>
-    {{/if}}
+  {{#if admin}}
+  <li>
+    <a href="admin.html">Admin (Presentation Only)</a>
+  </li>
+  <li>
+    <a href="" data-toggle="modal" data-target="#myModalAdmin" value="account">Admin</a>
+  </li>
+  {{/if}}
 </template>
 
 <template name="userEmail">
-    <p>{{userEmail}}</p>
+  <p>{{userEmail}}</p>
 </template>
 
 <template name="userName">
-    <p>{{userName}}</p>
+  <p>{{userName}}</p>
+</template>
+
+<template name="userInDate">
+  <p>{{userInDate}}</p>
+</template>
+
+<template name="userOutDate">
+  <p>{{userOutDate}}</p>
 </template>
 
 <template name="userChecked_In">
-    <p>{{userChecked_In}}</p>
+  <p>{{userChecked_In}}</p>
 </template>
 
 <template name="userRole">
-    <p>{{userRole}}</p>
+  <p>{{userRole}}</p>
 </template>
 
 <template name="userChildNumber">
-    <p>{{userChildNumber}}</p>
+  <p>{{userChildNumber}}</p>
 </template>
 
 <template name="userEmailVerified">
-    <p>{{userEmailVerified}}</p>
+  <p>{{userEmailVerified}}</p>
 </template>
 
 <template name="userPersonNumber">
-    <p>{{userPersonNumber}}</p>
+  <p>{{userPersonNumber}}</p>
 </template>
 
 <template name="userCreatedAt">
-    <p>{{userCreatedAt}}</p>
+  <p>{{userCreatedAt}}</p>
 </template>
 
 <template name="userNumRoom">
-    <p>{{userNumRoom}}</p>
+  <p>{{userNumRoom}}</p>
 </template>
 
 <template name="userRoomType">
-    <p>{{userRoomType}}</p>
+  <p>{{userRoomType}}</p>
 </template>
 
 <template name="modalAlert">
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="alert alert-success alert-dismissable">
-                        <strong>Success!</strong> Reservation Received.
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
+        <div class="modal-body">
+          <div class="alert alert-success alert-dismissable">
+            <strong>Success!</strong> Reservation Received.
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <template name="modalAlert2">
-    <!-- Modal -->
-    <div id="myModal2" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+  <!-- Modal -->
+  <div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="alert alert-success alert-dismissable">
-                        <strong>Success!</strong> Reservation Cancelled.
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
+        <div class="modal-body">
+          <div class="alert alert-success alert-dismissable">
+            <strong>Success!</strong> Reservation Cancelled.
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <template name="cancelButton">
-    <a data-original-title="Remove this user" data-toggle="tooltip" data-placement="top" type="button" class="btn btn-sm btn-danger"
-       title="Cancel Reservation"><i class="glyphicon glyphicon-remove"> Cancel Reservation</i></a>
+  <a data-original-title="Remove this user" data-toggle="tooltip" data-placement="top" type="button" class="btn btn-sm btn-danger"
+    title="Cancel Reservation"><i class="glyphicon glyphicon-remove"> Cancel Reservation</i></a>
 </template>
 
 <template name="modalAccount">
 
-    <!-- Modal -->
-    <div id="myModalAccount" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+  <!-- Modal -->
+  <div id="myModalAccount" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
 
-                    <div class="row">
+          <div class="row">
 
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title" align="center"><b>{{> userName}}</b></h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://i.imgur.com/hfH9CiC.png" class="img-circle img-responsive"> </div>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title" align="center"><b>{{> userName}}</b></h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://i.imgur.com/hfH9CiC.png" class="img-circle img-responsive"> </div>
 
-                                    <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                  <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
                                       <dl>
                                         <dt>DEPARTMENT:</dt>
                                         <dd>Administrator</dd>
@@ -197,389 +236,459 @@
                                         <dd>Male</dd>
                                       </dl>
                                     </div>-->
-                                    <div class=" col-md-9 col-lg-9 ">
-                                        <table class="table table-user-information">
-                                            <tbody>
-                                                <tr>
-                                                    <td><b>Email:</b></td>
-                                                    <td>{{> userEmail}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Number of Rooms:</b></td>
-                                                    <td>{{> userNumRoom}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Room Tier:</b></td>
-                                                    <td>{{> userRoomType}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Number of Persons:</b></td>
-                                                    <td>{{> userPersonNumber}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Number of Children:</b></td>
-                                                    <td>{{> userChildNumber}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Account Creation Date/Time:</b></td>
-                                                    <td>{{> userCreatedAt}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>(TEST ONLY) Role:</b></td>
-                                                    <td>{{> userRole}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                  <div class=" col-md-9 col-lg-9 ">
+                    <table class="table table-user-information">
+                      <tbody>
+                        <tr>
+                          <td><b>Email:</b></td>
+                          <td>{{> userEmail}}</td>
+                        </tr>
+                        <tr>
+                          <td><b>Check-In Date:</b></td>
+                          <td>{{> userInDate}}</td>
+                        </tr>
+                        <tr>
+                          <td><b>Check-Out Date:</b></td>
+                          <td>{{> userOutDate}}</td>
+                        </tr>
+                        <tr>
+                          <td><b>Number of Rooms:</b></td>
+                          <td>{{> userNumRoom}}</td>
+                        </tr>
+                        <tr>
+                          <td><b>Room Tier:</b></td>
+                          <td>{{> userRoomType}}</td>
+                        </tr>
+                        <tr>
+                          <td><b>Number of Persons:</b></td>
+                          <td>{{> userPersonNumber}}</td>
+                        </tr>
+                        <tr>
+                          <td><b>Number of Children:</b></td>
+                          <td>{{> userChildNumber}}</td>
+                        </tr>
+                        <tr>
+                          <td><b>Account Creation Date/Time:</b></td>
+                          <td>{{> userCreatedAt}}</td>
+                        </tr>
+                        <tr>
+                          <td><b>(TEST ONLY) Role:</b></td>
+                          <td>{{> userRole}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
 
-                                        <a href="#" class="btn btn-primary">My Sales Performance</a>
-                                        <a href="#" class="btn btn-primary">Team Sales Performance</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-footer">
-                                <a href="contact.html" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                                <span class="pull-right">
-                                    <a data-original-title="Cancel Reservation" data-toggle="tooltip" data-placement="top" type="submit" value="cancel" class="cancel btn btn-sm btn-danger" title="Cancel Reservation">Cancel Reservation  <span class="glyphicon glyphicon-remove"></span></a>
-                                </span>
-                            </div>
-
-                        </div>
-                    </div>
-
+                    <a href="#" class="btn btn-primary">My Sales Performance</a>
+                    <a href="#" class="btn btn-primary">Team Sales Performance</a>
+                  </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
+              </div>
+              <div class="panel-footer">
+                <a href="contact.html" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                <span class="pull-right">
+                                    <a data-original-title="Cancel Reservation" data-toggle="tooltip" data-placement="top" type="submit" value="cancel" class="cancel btn btn-sm btn-danger" title="Cancel Reservation">Cancel Reservation  <span class="glyphicon glyphicon-remove"></span></a>
+                </span>
+              </div>
 
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
     </div>
 
+  </div>
+
+</template>
+
+<template name="modalAdmin">
+
+  <!-- Modal -->
+  <div id="myModalAdmin" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+
+          <div class="row">
+
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h3 class="panel-title" align="center"><b>{{> userName}}</b></h3>
+              </div>
+              <div class="panel-body">
+
+                <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                                      <dl>
+                                        <dt>DEPARTMENT:</dt>
+                                        <dd>Administrator</dd>
+                                        <dt>HIRE DATE</dt>
+                                        <dd>11/12/2013</dd>
+                                        <dt>DATE OF BIRTH</dt>
+                                           <dd>11/12/2013</dd>
+                                        <dt>GENDER</dt>
+                                        <dd>Male</dd>
+                                      </dl>
+                                    </div>-->
+                <div>
+                  {{> adminTable}}
+                </div>
+              </div>
+              <div class="panel-footer">
+                <a href="contact.html" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                <span class="pull-right">
+                                    <a data-original-title="Cancel Reservation" data-toggle="tooltip" data-placement="top" type="submit" value="cancel" class="cancel btn btn-sm btn-danger" title="Cancel Reservation">Cancel Reservation  <span class="glyphicon glyphicon-remove"></span></a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="adminTable">
+  <div class="input-group"> <span class="input-group-addon">Filter</span>
+    <input id="filter" type="text" class="form-control" placeholder="Type here...">
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Room Tier</th>
+        <th>Check-In</th>
+        <th>Check-Out</th>
+      </tr>
+    </thead>
+    <tbody class="searchable">
+      {{> daysOverview}}
+    </tbody>
+  </table>
 </template>
 
 <template name="UI">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#my-nav">
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#my-nav">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
-                    <!--Blue Moon Logo-->
-                    <img src="images/blue-moon-logo.png" id="logo"/>
-                </a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="my-nav">
-                <ul class="nav navbar-nav navbar-right">
-                    {{> isAdmin}}
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-                    <li>
-                        <a href="portfolio-1-col.html">Amenities</a>
-                    </li>
-                    <li>
-                        <a href="pricing.html">Pricing</a>
-                    </li>
-                    {{#if currentUser}} {{> settings}} {{else}} {{> login}} {{> signup}} {{/if}}
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Header Carousel -->
-    <header id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <img src="images/Sandals.jpg" alt="Hotel"> <!--The only imaged changed on the carrosel-->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=General Hotel Picture 1');"></div>
-                <div class="carousel-caption">
-                </div>
-            </div>
-            <div class="item">
-                <img src="images/beachhotelroom2.jpg" alt="Hotel">
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=General Hotel Picture 2');"></div>
-                <div class="carousel-caption">
-                    
-                </div>
-            </div>
-            <div class="item">
-                <img src="images/beachfront.jpg" alt="Hotel">
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=General Hotel Picture 3');"></div>
-                <div class="carousel-caption">
-                   
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
+        <a class="navbar-brand" href="index.html">
+          <img src="https://www.bluemoonbrewingcompany.com/sites/bluemoon/files/blue-moon-logo.png" style="max-width:inherit" width="75"
+            height="60" />
         </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </header>
-
-    <!-- Page Content -->
-    <div class="container" id="check">
-
-        <!-- Marketing Icons Section -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    Experience Blue Moon Suites and Resorts
-                </h1>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-wifi"></i> Book on the Go</h4>
-                    </div>
-                    <div class="panel-body">
-                        {{> daysOverview}}
-                        <!--Brandell-->
-                        <p>
-                            In today's day in age we realize how important it is to stay connected. Keep in touch with reality
-                            while still enjoying your stay whether its for business or pleasure. We offer the options of booking
-                            by our Blue Moon app, placing a phone call, or booking online.
-                        </p>
-                        <a href="#" class="btn btn-primary btn-outline fa fa-apple"> App Store</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i> Exclusive Gifts</h4>
-                    </div>
-                    <div class="panel-body">
-                        <!--Brandell-->
-                        <p>
-                            We offer our gold members the gift of it all. Get exclusive offers, promotional discounts, and even
-                            free night stays with full access to any resort's or suite's amenities! Refer a friend and save $100 off
-                            on your next stay! (Limit up to 5 per stay.)
-                        </p>
-                        <a href="#" class="btn btn-primary btn-outline">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-facebook"></i> Get Social</h4>
-                    </div>
-                    <div class="panel-body">
-                        <!--Brandell-->
-                        <p>
-                            Follow us on Twitter, Facebook, and Reddit to be apart of our community! Give us feedback for
-                            your thoughts on how we can improve your stay or even just for a shout out! Receive $25 off your
-                            next reservation when you like and follow us on Facebook and Twitter! (Must have an active account
-                            on our website.)
-                        </p>
-                        <a href="https://www.reddit.com" class="btn btn-primary btn-outline fa fa-reddit" id="reddit"> Reddit</a>
-                        <a href="https://twitter.com" class="btn btn-primary btn-outline fa fa-twitter" id="face"> Twitter</a>
-                        <a href="https://www.facebook.com" class="btn btn-primary btn-outline fa fa-facebook"> Facebook</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /.row -->
-        <!-- Portfolio Section -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Get Comfortable and Rested</h2>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="images/Double1.jpg">
-                    <!--Brandell-->
-                    <img class="img-hover" src="images/Double1.jpg" alt="AwayHome" height="175" width="290">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="images/Deluxe2.jpg">
-                    <!--Brandell-->
-                    <img class="img-hover img-portfolio" src="images/Deluxe2.jpg" height="175" width="290" alt="AwayHome">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-               <a href="images/beachhotelroom.jpg">  
-                    <!--Brandell-->
-                    <img class="img-portfolio img-hover" src="images/beachhotelroom.jpg" height="175" width="290" alt="AwayHome">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-               <a href="images/hotelpool.jpg"> 
-                    <!--Brandell-->
-                   <img class="img-portfolio img-hover" src="images/hotelpool.jpg" height="175" width="290" alt="AwayHome">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-               <a href="images/Single1.jpg">
-                    <!--Brandell-->
-                    <img class="img-portfolio img-hover" src="images/Single1.jpg" alt="AwayHome" height="175" width="290">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-               <a href="images/Cali.jpg">
-                    <!--Brandell-->
-                   <img class="img-portfolio img-hover" src="images/Cali.jpg" alt="AwayHome" height="175" width="290">
-                </a>
-            </div>
-        </div>
-        <!-- /.row -->
-        <!-- Features Section -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Entertainment Beyond Belief</h2>
-            </div>
-            <div class="col-md-6">
-                <!--Brandell-->
-                <p>Enjoy your stay and pass some time to your hearts content, take advantage of the many choices we have for fun!</p>
-                <ul>
-                  <!--  <li>
-                        <strong>Bootstrap v3.3.7</strong>
-                    </li> -->
-                    <!--Brandell-->
-                    <li>Xbox One S, Playstation 4, Nintendo Switch available in every room.</li>
-                    <li>24/7 buffet serving breakfast, lunch, and dinner.</li>
-                    <li>Gym, Pool, and Track facilities at every location.</li>
-                    <li>Take part in our underwater excersions when visiting our resort's private beaches!</li>
-                </ul>
-                <!--Brandell-->
-                <p>
-                    Our brand is the epitome of luxury and relaxation. If you're looking for a place where family is welcomed, a place for a special occasion,
-                    or just a place to kick back and get away from it all, then look no further. Here at Blue Moon Suites we strive for your enjoyment,
-                    be apart of our family as you enjoy the many amenities our hotels have to offer. We look forward to your visit here at Blue Moon Suites.
-                </p>
-            </div>
-            <div class="col-md-6">
-                <img class="img-responsive" src="images/nightparty.png" alt="">
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Call to Action Section -->
-        <div class="well">
-            <div class="row">
-                <div class="col-md-8">
-                    <!--Brandell-->
-                    <p>
-                        Reserve a stay today, it's just a click away. Our team welcomes you openly to relax, unwine, and breeze through the day.
-                        Let us temporarily take you away from reality so you can have your head in the clouds and your mind at ease.
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    <a class="btn btn-lg btn-success btn-outline btn-block" href="pricing.html">Reserve a Room Today!</a>
-                </div>
-            </div>
-        </div>
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Blue Moon Suites 2017</p>
-                </div>
-            </div>
-        </footer>
-
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="my-nav">
+        <ul class="nav navbar-nav navbar-right">
+          {{> isAdmin}}
+          <li>
+            <a href="about.html">About</a>
+          </li>
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
+          <li>
+            <a href="portfolio-1-col.html">Amenities</a>
+          </li>
+          <li>
+            <a href="pricing.html">Pricing</a>
+          </li>
+          {{#if currentUser}} {{> settings}} {{else}} {{> login}} {{> signup}} {{/if}}
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
+  </nav>
+
+  <!-- Header Carousel -->
+  <header id="myCarousel" class="carousel slide">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="images/carousel1.jpg" alt="Hotel">
+        <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=General Hotel Picture 1');"></div>
+        <div class="carousel-caption">
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/beachhotelroom2.jpg" alt="Hotel">
+        <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=General Hotel Picture 2');"></div>
+        <div class="carousel-caption">
+
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/beachfront.jpg" alt="Hotel">
+        <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=General Hotel Picture 3');"></div>
+        <div class="carousel-caption">
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="icon-next"></span>
+    </a>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container" id="check">
+
+    <!-- Marketing Icons Section -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">
+          Experience Blue Moon Suites and Resorts
+        </h1>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4><i class="fa fa-fw fa-wifi"></i> Book on the Go</h4>
+          </div>
+          <div class="panel-body">
+            <p>
+              In today's day in age we realize how important it is to stay connected. Keep in touch with reality while still enjoying your
+              stay whether its for business or pleasure. We offer the options of booking by our Blue Moon app, placing a
+              phone call, or booking online.
+            </p>
+            <a href="#" class="btn btn-primary btn-outline fa fa-apple"> App Store</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4><i class="fa fa-fw fa-gift"></i> Exclusive Gifts</h4>
+          </div>
+          <div class="panel-body">
+            <p>
+              We offer our gold members the gift of it all. Get exclusive offers, promotional discounts, and even free night stays with
+              full access to any resort's or suite's amenities! Refer a friend and save $100 off on your next stay! (Limit
+              up to 5 per stay.)
+            </p>
+            <a href="#" class="btn btn-primary btn-outline">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4><i class="fa fa-fw fa-facebook"></i> Get Social</h4>
+          </div>
+          <div class="panel-body">
+            <p>
+              Follow us on Twitter, Facebook, and Reddit to be apart of our community! Give us feedback for your thoughts on how we can
+              improve your stay or even just for a shout out! Receive $25 off your next reservation when you like and follow
+              us on Facebook and Twitter! (Must have an active account on our website.)
+            </p>
+            <a href="#" class="btn btn-primary btn-outline fa fa-reddit" id="reddit"> Reddit</a>
+            <a href="#" class="btn btn-primary btn-outline fa fa-twitter" id="face"> Twitter</a>
+            <a href="#" class="btn btn-primary btn-outline fa fa-facebook"> Facebook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+    <!-- Portfolio Section -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="page-header">Get Comfortable and Rested</h2>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <a href="portfolio-item.html">
+          <img class="img-hover" src="images/Double1.jpg" alt="AwayHome" height="175" width="290">
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <a href="portfolio-item.html">
+          <img class="img-hover img-portfolio" src="images/Deluxe2.jpg" height="175" width="290" alt="AwayHome">
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <a href="portfolio-item.html">
+          <img class="img-portfolio img-hover" src="images/beachhotelroom.jpg" height="175" width="290" alt="AwayHome">
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <a href="portfolio-item.html">
+          <img class="img-portfolio img-hover" src="images/hotelpool.jpg" height="175" width="290" alt="AwayHome">
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <a href="portfolio-item.html">
+          <img class="img-portfolio img-hover" src="images/Single1.jpg" alt="AwayHome" height="175" width="290">
+        </a>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <a href="portfolio-item.html">
+          <img class="img-portfolio img-hover" src="images/Cali.jpg" alt="AwayHome" height="175" width="290">
+        </a>
+      </div>
+    </div>
+    <!-- /.row -->
+    <!-- Features Section -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="page-header">Entertainment Beyond Belief</h2>
+      </div>
+      <div class="col-md-6">
+        <p>Enjoy your stay and pass some time to your hearts content, take advantage of the many choices we have for fun!</p>
+        <ul>
+          <!--  <li>
+                        <strong>Bootstrap v3.3.7</strong>
+                    </li> -->
+          <li>Xbox One S, Playstation 4, Nintendo Switch available in every room.</li>
+          <li>24/7 buffet serving breakfast, lunch, and dinner.</li>
+          <li>Gym, Pool, and Track facilities at every location.</li>
+          <li>Take part in our underwater excersions when visiting our resort's private beaches!</li>
+        </ul>
+        <p>
+          Our brand is the epitome of luxury and relaxation. If you're looking for a place where family is welcomed, a place for a
+          special occasion, or just a place to kick back and get away from it all, then look no further. Here at Blue Moon
+          Suites we strive for your enjoyment, be apart of our family as you enjoy the many amenities our hotels have to
+          offer. We look forward to your visit here at Blue Moon Suites.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <img class="img-responsive" src="images/nightparty.png" alt="">
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Call to Action Section -->
+    <div class="well">
+      <div class="row">
+        <div class="col-md-8">
+          <p>
+            Reserve a stay today, it's just a click away. Our team welcomes you openly to relax, unwine, and breeze through the day.
+            Let us temporarily take you away from reality so you can have your head in the clouds and your mind at ease.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <a class="btn btn-lg btn-success btn-outline btn-block" href="pricing.html">Reserve a Room Today!</a>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright &copy; Blue Moon Suites 2017</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <!-- /.container -->
 </template>
 
 <template name="login">
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b><b class="caret"></b></a>
-        <ul id="login-dp" class="dropdown-menu">
-            <li>
-                <div class="row">
-                    <div class="col-md-12">
-                        Login via
-                        <div class="social-buttons">
-                            <a href="#" class="btn btn-fb">
-                                <i class="fa fa-facebook">
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b><b class="caret"></b></a>
+    <ul id="login-dp" class="dropdown-menu">
+      <li>
+        <div class="row">
+          <div class="col-md-12">
+            Login via
+            <div class="social-buttons">
+              <a href="#" class="btn btn-fb">
+                <i class="fa fa-facebook">
                                 </i> Facebook
-                            </a>
-                            <a href="#" class="btn btn-tw">
-                                <i class="fa fa-twitter">
+              </a>
+              <a href="#" class="btn btn-tw">
+                <i class="fa fa-twitter">
                                 </i> Twitter
-                            </a>
-                        </div>
-                        or
-                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                            <div class="form-group">
-                                <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                <input type="email" name="loginEmail" class="form-control" placeholder="Email address" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                <input type="password" name="loginPassword" class="form-control" placeholder="Password" required>
-                                <div class="help-block text-right">
-                                    <a href="">Forget the password ?</a>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-success btn-outline btn-block" value="Login"> Sign in </button>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox">keep me logged-in</label>
-                            </div>
-                        </form>
-                    </div>
+              </a>
+            </div>
+            or
+            <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+              <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                <input type="email" name="loginEmail" class="form-control" placeholder="Email address" required>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="exampleInputPassword2">Password</label>
+                <input type="password" name="loginPassword" class="form-control" placeholder="Password" required>
+                <div class="help-block text-right">
+                  <a href="">Forget the password ?</a>
                 </div>
-            </li>
-        </ul>
-    </li>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-success btn-outline btn-block" value="Login"> Sign in </button>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox">keep me logged-in</label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </li>
 </template>
 
 <template name="settings">
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>{{> userName }}</b></a>
-        <ul id="login-dp" class="dropdown-menu">
-            <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                <div class="form-group">
-                    <button type="button" class="btn btn-primary btn-outline btn-block" data-toggle="modal" data-target="#myModalAccount" value="account"> Account Info <span class="glyphicon glyphicon-cog"></span></button>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="logout btn btn-danger btn-outline btn-block" value="logout"> Logout <span class="glyphicon glyphicon-off"></span></button>
-                </div>
-                <div class="form-group">
-                    <label>Room/Suite Type</label>
-                    <select class="form-control" id="room_type">
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>{{> userName }}</b></a>
+    <ul id="login-dp-custom" class="dropdown-menu">
+      <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+        <div class="form-group">
+          <button type="button" class="btn btn-primary btn-outline btn-block" data-toggle="modal" data-target="#myModalAccount" value="account"> Account Info <span class="glyphicon glyphicon-cog"></span></button>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="logout btn btn-danger btn-outline btn-block" value="logout"> Logout <span class="glyphicon glyphicon-off"></span></button>
+        </div>
+        <div class="form-group">
+          <label>Room/Suite Type</label>
+          <select class="form-control" id="room_type">
                         <option value="0" selected> Select Room/Suite </option>
                         <option value="Standard"> Standard </option>
                         <option value="Deluxe"> Deluxe </option>
                         <option value="VIP"> VIP </option>
                     </select>
-                </div>
-                <div class="form-group">
-                    <label>Number of room/suite</label>
-                    <select class="form-control" id="room_number">
+        </div>
+        <div class="form-group">
+          <label>Number of room/suite</label>
+          <select class="form-control" id="room_number">
                         <option value="0"> 0 </option>
                         <option value="1"> 1 </option>
                         <option value="2"> 2 </option>
@@ -589,10 +698,10 @@
                         <option value="6"> 6 </option>
                         <option value="7"> 7 </option>
                     </select>
-                </div>
-                <div class="form-group">
-                    <label>Number of persons</label>
-                    <select class="form-control" id="person_number">
+        </div>
+        <div class="form-group">
+          <label>Number of persons</label>
+          <select class="form-control" id="person_number">
                         <option value="0"> 0 </option>
                         <option value="1"> 1 </option>
                         <option value="2"> 2 </option>
@@ -602,10 +711,10 @@
                         <option value="6"> 6 </option>
                         <option value="7"> 7 </option>
                     </select>
-                </div>
-                <div class="form-group">
-                    <label>Number of children</label>
-                    <select class="form-control" id="child_number">
+        </div>
+        <div class="form-group">
+          <label>Number of children</label>
+          <select class="form-control" id="child_number">
                         <option value="0"> 0 </option>
                         <option value="1"> 1 </option>
                         <option value="2"> 2 </option>
@@ -615,39 +724,45 @@
                         <option value="6"> 6 </option>
                         <option value="7"> 7 </option>
                     </select>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="reserve btn btn-primary btn-outline btn-block" data-toggle="modal" data-target="#myModal" value="Reserve">Create/Edit Reservation</button>
-                </div>
-            </form>
-        </ul>
-    </li>
+        </div>
+        <div class="form-group">
+          <label>Check-In Date</label> {{> datePicker1}}
+        </div>
+        <div class="form-group">
+          <label>Check-Out Date</label> {{> datePicker2}}
+        </div>
+        <div class="form-group">
+          <button type="submit" class="reserve btn btn-primary btn-outline btn-block" data-toggle="modal" data-target="#myModal" value="Reserve">Create/Edit Reservation</button>
+        </div>
+      </form>
+    </ul>
+  </li>
 </template>
 
 <template name="signup">
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Create an Account</b><b class="caret"></b></a>
-        <ul id="login-dp" class="dropdown-menu">
-            <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                <div class="form-group">
-                    <label class="sr-only" for="exampleInputName2">First Name</label>
-                    <input type="text" name="signupName" class="form-control" placeholder="First Name" required>
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                    <input type="email" name="signupEmail" class="form-control" placeholder="Email address" required>
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="exampleInputPassword2">Password</label>
-                    <input type="password" name="signupPassword" class="form-control" placeholder="Password" required>
-                    <div class="help-block text-right">
-                        <a href="">Forget the password ?</a>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-success btn-outline btn-block" value="Signup"> Register </button>
-                </div>
-            </form>
-        </ul>
-    </li>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Create an Account</b><b class="caret"></b></a>
+    <ul id="login-dp" class="dropdown-menu">
+      <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+        <div class="form-group">
+          <label class="sr-only" for="exampleInputName2">First Name</label>
+          <input type="text" name="signupName" class="form-control" placeholder="First Name" required>
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="exampleInputEmail2">Email address</label>
+          <input type="email" name="signupEmail" class="form-control" placeholder="Email address" required>
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="exampleInputPassword2">Password</label>
+          <input type="password" name="signupPassword" class="form-control" placeholder="Password" required>
+          <div class="help-block text-right">
+            <a href="">Forget the password ?</a>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success btn-outline btn-block" value="Signup"> Register </button>
+        </div>
+      </form>
+    </ul>
+  </li>
 </template>
