@@ -1,6 +1,6 @@
 # Blue Moon Suites Quick Start
 
-1) Download and install Meteor.js.
+1) Download and install Meteor.js. http://meteor.com/install
 
 2) Within the terminal cd to the directory you wish to run our app from.
 
