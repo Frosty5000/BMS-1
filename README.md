@@ -21,3 +21,9 @@
 
 7) Now type "meteor" within the terminal while your current directory is the BMS app folder and the website should be hosted locally on localhost:3000
 
+## Some Notes
+
+We do not take credit for admin.html, blank-page.html, bootstrap-elements.html, bootstrap-grid.html, and charts.html. These were put in strictly for show in the presentation to show what admin page we would've liked to hook up to our site if given more time or if we were more experienced.
+
+In terms of source code grading the only code we made ourselves is either in the /public folder or within the /client folder. Code anywhere else is a precompiled library/framework element. Main.html is commented, but since we use the same templates for every page it didn't make sense to put the same comments on every page.
+
