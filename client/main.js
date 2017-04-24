@@ -9,9 +9,11 @@ roomNum = "0";
 
 if (Meteor.isClient) {
     Tracker.autorun(function () {
+        //Collection subscription. Allowing data to go to the CLient
         Meteor.subscribe("allUsers");
         Meteor.subscribe("allUserData");
     });
+    //Sign-up Method
     Template.signup.events({
         'submit form': function (event) {
             event.preventDefault();
@@ -19,6 +21,7 @@ if (Meteor.isClient) {
             var passwordVar = event.target.signupPassword.value;
             date = new Date();
             nameVar = event.target.signupName.value;
+            //Uses input data as arguments for base account creation.
             if (nameVar == "Paul") {
                 Accounts.createUser({
                     email: emailVar,
@@ -56,6 +59,7 @@ if (Meteor.isClient) {
             }
         }
     });
+    //Hook for cancel button erasing room reservation, but not the account itself
     Template.body.events({
         'click .cancel': function (e) {
             event.preventDefault();
@@ -77,6 +81,7 @@ if (Meteor.isClient) {
                 }
             });
             //alert("Great Success!");
+            //Currently open Modals must be closed or the new one opening doed weird stuff to the screen region/website proportions.
             $('#myModalAccount').modal('hide');
             $('#myModalAdmin').modal('hide');
             setTimeout(function () {
@@ -84,19 +89,28 @@ if (Meteor.isClient) {
             }, 1000)
         }
     });
+    //Login button hook
     Template.login.events({
         'submit form': function (event) {
             event.preventDefault();
             var emailVar = event.target.loginEmail.value;
             var passwordVar = event.target.loginPassword.value;
-            Meteor.loginWithPassword(emailVar, passwordVar);
+            Meteor.loginWithPassword(emailVar, passwordVar, function (err) {
+                if (err) {
+                    $('#myModal3').modal('show');
+                } else {
+                    $('#myModal4').modal('show');
+                }
+            });
         }
     });
+    //Logout button hook
     Template.settings.events({
         'click .logout': function (event) {
             event.preventDefault();
             Meteor.logout();
         },
+        //Room Reservation helper
         'submit form': function (event) {
             event.preventDefault();
             var room_type = event.target.room_type.value;
@@ -132,6 +146,8 @@ if (Meteor.isClient) {
             event.target.child_number.value = "0";
         }
     });
+
+    //datePicker1 and 2 are helper functions for the calendars in the reservation dropdown.
     Template.datePicker1.onRendered(function () {
         this.$('.datetimepicker1').datetimepicker({
             format: 'dddd, MMMM Do YYYY'
@@ -142,6 +158,8 @@ if (Meteor.isClient) {
             format: 'dddd, MMMM Do YYYY'
         });
     });
+
+    //Many helper functions for passing global variables to the HTML templates.
     Template.userEmail.helpers({
         userEmail: function () {
             return Meteor.user().emails[0].address
@@ -203,12 +221,12 @@ if (Meteor.isClient) {
         }
     });
     Template.daysOverview.helpers({
-        users() { 
+        users() {
             return Meteor.users.find({});
-         },
+        },
         email() {
-             return this.emails[0].address;
-             }
+            return this.emails[0].address;
+        }
     });
     /*  REQUIRES AUTHORIZATION. POSSIBLE TO PUBLISH?
         userID: function () {
@@ -235,20 +253,18 @@ if (Meteor.isClient) {
             return names
         }
     }) */
-    /*
-Please consider that the JS part isn't production ready at all, I just code it to show the concept of merging filters and titles together !
-*/
 }
 
 if (Meteor.isServer) {
     Meteor.startup(function () {
     });
+    //These three publish functions are just for allowing collection data to go to the client that subscribes to them.
     Meteor.publish('allUsers', function () {
         return Meteor.users.find({});
     });
     Meteor.publish('AllUserData', function () {
         return Meteor.users.find({}, { fields: { emails: 1, profile: 1 } });
     });
-    Meteor.publish( 'profiles', function () { Meteor.users.find({}) });
+    Meteor.publish('profiles', function () { Meteor.users.find({}) });
 
 }
