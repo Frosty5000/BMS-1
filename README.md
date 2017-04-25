@@ -27,3 +27,5 @@ We do not take credit for admin.html, blank-page.html, bootstrap-elements.html, 
 
 In terms of source code grading the only code we made ourselves is either in the /public folder or within the /client folder. Code anywhere else is a precompiled library/framework element. Main.html is commented, but since we use the same templates for every page it didn't make sense to put the same comments on every page.
 
+This git repository was remade due to when the first one was created, files were not organized as well, so the progress of our monthly attributes has been rewritten to a more earlier time stamp.
+
